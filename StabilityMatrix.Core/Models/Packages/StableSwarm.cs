@@ -244,7 +244,15 @@ public class StableSwarm(
 
         await prerequisiteHelper
             .RunDotnet(
-                ["build", $"src/{csprojName}", "--configuration", "Release", "-o", "src/bin/live_release"],
+                [
+                    "build",
+                    $"src/{csprojName}",
+                    "--configuration",
+                    "Release",
+                    "-o",
+                    "src/bin/live_release",
+                    "-p:ManagePackageVersionsCentrally=false",
+                ],
                 workingDirectory: installLocation,
                 onProcessOutput: onConsoleOutput
             )
