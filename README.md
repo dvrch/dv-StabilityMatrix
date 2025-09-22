@@ -114,6 +114,10 @@ Multi-Platform Package Manager and Inference UI for Stable Diffusion
   <img style="width: 80%; height: 80%" src="https://cdn.lykos.ai/static/sc-checkpoints-find-connected.gif" alt=""/>
 </p>
 
+## Guides
+
+- [Guide d'installation de .NET 9 sur Kali Linux avec les pilotes NVIDIA](GUIDE_INSTALLATION_KALI.md)
+
 ## Localization
 Stability Matrix is now available in the following languages, thanks to our community contributors:
 - 🇺🇸 English
