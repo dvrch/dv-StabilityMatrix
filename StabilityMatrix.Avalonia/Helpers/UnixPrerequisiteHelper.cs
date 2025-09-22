@@ -46,16 +46,11 @@ public class UnixPrerequisiteHelper(
 
     private DirectoryPath DotnetDir => AssetsDir.JoinDir("dotnet");
     private string DotnetPath => Path.Combine(DotnetDir, "dotnet");
-    private string Dotnet7SdkExistsPath => Path.Combine(DotnetDir, "sdk", "7.0.405");
-    private string Dotnet8SdkExistsPath => Path.Combine(DotnetDir, "sdk", "8.0.101");
-    private string Dotnet7DownloadUrlMacOs =>
-        "https://download.visualstudio.microsoft.com/download/pr/5bb0e0e4-2a8d-4aba-88ad-232e1f65c281/ee6d35f762d81965b4cf336edde1b318/dotnet-sdk-7.0.405-osx-arm64.tar.gz";
-    private string Dotnet8DownloadUrlMacOs =>
-        "https://download.visualstudio.microsoft.com/download/pr/ef083c06-7aee-4a4f-b18b-50c9a8990753/e206864e7910e81bbd9cb7e674ff1b4c/dotnet-sdk-8.0.101-osx-arm64.tar.gz";
-    private string Dotnet7DownloadUrlLinux =>
-        "https://download.visualstudio.microsoft.com/download/pr/5202b091-2406-445c-b40a-68a5b97c882b/b509f2a7a0eb61aea145b990b40b6d5b/dotnet-sdk-7.0.405-linux-x64.tar.gz";
-    private string Dotnet8DownloadUrlLinux =>
-        "https://download.visualstudio.microsoft.com/download/pr/9454f7dc-b98e-4a64-a96d-4eb08c7b6e66/da76f9c6bc4276332b587b771243ae34/dotnet-sdk-8.0.101-linux-x64.tar.gz";
+    private string Dotnet9SdkExistsPath => Path.Combine(DotnetDir, "sdk", "9.0.305");
+    private string Dotnet9DownloadUrlMacOs =>
+        "https://builds.dotnet.microsoft.com/dotnet/Sdk/9.0.305/dotnet-sdk-9.0.305-osx-arm64.tar.gz";
+    private string Dotnet9DownloadUrlLinux =>
+        "https://builds.dotnet.microsoft.com/dotnet/Sdk/9.0.305/dotnet-sdk-9.0.305-linux-x64.tar.gz";
 
     // Cached store of whether or not git is installed
     private bool? isGitInstalled;
@@ -104,13 +99,13 @@ public class UnixPrerequisiteHelper(
 
     public async Task InstallDotnetIfNecessary(IProgress<ProgressReport>? progress = null)
     {
-        var downloadUrl = Compat.IsMacOS ? Dotnet8DownloadUrlMacOs : Dotnet8DownloadUrlLinux;
+        var downloadUrl = Compat.IsMacOS ? Dotnet9DownloadUrlMacOs : Dotnet9DownloadUrlLinux;
 
-        var dotnet8SdkExists = Directory.Exists(Dotnet8SdkExistsPath);
+        var dotnet9SdkExists = Directory.Exists(Dotnet9SdkExistsPath);
 
-        if (dotnet8SdkExists && Directory.Exists(DotnetDir))
+        if (dotnet9SdkExists && Directory.Exists(DotnetDir))
         {
-            Logger.Info("Dotnet 8 SDK already installed at {DotnetDir}", DotnetDir);
+            Logger.Info("Dotnet 9 SDK already installed at {DotnetDir}", DotnetDir);
             return;
         }
 
@@ -394,7 +389,7 @@ public class UnixPrerequisiteHelper(
             return process;
 
         Logger.Error(
-            "dotnet8 with args [{Args}] failed with exit code " + "{ExitCode}:\n{StdOut}\n{StdErr}",
+            "dotnet with args [{Args}] failed with exit code " + "{ExitCode}:\n{StdOut}\n{StdErr}",
             args,
             process.ExitCode,
             process.StandardOutput,
@@ -402,7 +397,7 @@ public class UnixPrerequisiteHelper(
         );
 
         throw new ProcessException(
-            $"dotnet8 with args [{args}] failed with exit code"
+            $"dotnet with args [{args}] failed with exit code"
                 + $" {process.ExitCode}:\n{process.StandardOutput}\n{process.StandardError}"
         );
     }
