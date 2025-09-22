@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Name=Stability Matrix
+Comment=Launch the Stability Matrix application
+Exec=/home/kd/Bureau/StabilityMatrix/launch.sh
+Icon=/home/kd/Bureau/StabilityMatrix/StabilityMatrix.Avalonia/Assets/Icon.png
+Terminal=false
+Type=Application
+Categories=Utility;Graphics;

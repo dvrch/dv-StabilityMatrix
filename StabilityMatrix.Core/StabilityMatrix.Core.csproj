@@ -2,6 +2,7 @@
   <Import Project="..\ConditionalSymbols.props" />
   <Import Project="..\Runtimes.Default.props" />
     <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
         <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
         <EnableWindowsTargeting>true</EnableWindowsTargeting>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>

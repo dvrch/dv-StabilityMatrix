@@ -1,7 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <RuntimeIdentifiers>osx-x64;osx-arm64</RuntimeIdentifiers>
+        <TargetFramework>net9.0</TargetFramework>
+        <UseMaui>True</UseMaui>
+        <SingleProject>True</SingleProject>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>

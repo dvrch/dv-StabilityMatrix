@@ -1,9 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
-        <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
-        <EnableWindowsTargeting>true</EnableWindowsTargeting>
+        <TargetFramework>net9.0</TargetFramework>
+        <UseMaui>True</UseMaui>
+        <SingleProject>True</SingleProject>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     </PropertyGroup>
 

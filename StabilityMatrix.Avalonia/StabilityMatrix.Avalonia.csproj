@@ -3,6 +3,7 @@
     <Import Project="..\Runtimes.Default.props" />
     
     <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
         <OutputType>WinExe</OutputType>
         <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
